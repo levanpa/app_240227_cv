@@ -14,3 +14,4 @@ npm install pinia
 - install pinia-plugin-persistedstate to keep state value after F5
 npm i pinia-plugin-persistedstate
 - fix vite does not hot reload
+- setup file structure
