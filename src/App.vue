@@ -47,6 +47,8 @@ a
   margin: 0 auto
   font-family: 'Open Sans', sans-serif
   font-size: 16px
+  .hidden
+    visibility: hidden
 .page-wrapper
   display: flex
   box-shadow: 2px 0 7px #a9a9a9

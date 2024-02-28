@@ -1,5 +1,15 @@
 <script setup>
 import { ref } from 'vue'
+
+function copyToClipboard(event) {
+  if (!navigator.clipboard) {
+    console.log('The browser does not support.')
+    return
+  }
+  let textElement = event.target.closest('.text-wrapper').querySelector('.text')
+  let value = textElement.textContent
+  navigator.clipboard.writeText(value)
+}
 </script>
 
 <template lang="pug">
@@ -15,38 +25,44 @@ import { ref } from 'vue'
       i.icon.fa-solid.fa-square-phone
       .text-wrapper
         a.text(href="tel:0338401232") 0338401232
-        button.copy-button(title="copy to clipboard")
+        button.copy-button(@click.prevent="copyToClipboard" title="copy to clipboard")
           i.fa-regular.fa-copy
     li.info-item
       i.icon.fa-solid.fa-square-envelope
       .text-wrapper
         a.text(target="_blank" href="mailto:levanpa00@gmail.com") levanpa00@gmail.com
-        button.copy-button(title="copy to clipboard")
+        button.copy-button(@click.prevent="copyToClipboard" title="copy to clipboard")
           i.fa-regular.fa-copy
     li.info-item
       i.icon.fa-solid.fa-map-location-dot
       .text-wrapper
         a.text(target="_blank" href="https://maps.app.goo.gl/7Mm6bywZanWTK2jj6") Thanh Da, Binh Thanh
-        button.copy-button(title="copy to clipboard")
+        button.copy-button(@click.prevent="copyToClipboard" title="copy to clipboard")
           i.fa-regular.fa-copy
   ul.contact-wrapper
     li.contact-item
       i.icon.fa-brands.fa-facebook-messenger
       .text-wrapper
-        a.text(target="_blank" href="https://m.me/kaipawoo") m.me/kaipawoo
-        button.copy-button(title="copy to clipboard")
+        a.text(target="_blank" href="https://m.me/kaipawoo")
+          span.hidden https://
+          |m.me/kaipawoo
+        button.copy-button(@click.prevent="copyToClipboard" title="copy to clipboard")
           i.fa-regular.fa-copy
     li.contact-item
       i.icon.fa-brands.fa-behance
       .text-wrapper
-        a.text(target="_blank" href="https://be.net/levanpa") be.net/levanpa
-        button.copy-button(title="copy to clipboard")
+        a.text(target="_blank" href="https://be.net/levanpa")
+          span.hidden https://
+          |be.net/levanpa
+        button.copy-button(@click.prevent="copyToClipboard" title="copy to clipboard")
           i.fa-regular.fa-copy
     li.contact-item
       i.icon.fa-brands.fa-telegram
       .text-wrapper
-        a.text(target="_blank" href="https://t.me/levanpa00") t.me/levanpa00
-        button.copy-button(title="copy to clipboard")
+        a.text(target="_blank" href="https://t.me/levanpa00")
+          span.hidden https://
+          |t.me/levanpa00
+        button.copy-button(@click.prevent="copyToClipboard" title="copy to clipboard")
           i.fa-regular.fa-copy
   .soft-skills-wrapper
     .title-wrapper
