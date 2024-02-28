@@ -1,0 +1,101 @@
+.sidebar-wrapper
+  box-shadow: 2px 0 7px #a9a9a9
+  .top-wrapper,
+  .info-wrapper,
+  .contact-wrapper,
+  .soft-skills-wrapper
+    padding: 20px 40px
+    border-bottom: 1px solid #bbb
+  .top-wrapper
+    display: flex
+    align-items: center
+    gap: 10px
+    .avatar
+      flex-basis: 100px
+      height: 100px
+      border-radius: 50%
+      background-color: #fff
+    .name
+      font-weight: 600
+      font-size: 20px
+    .born
+      color: #888
+      font-size: 14px
+
+  .info-wrapper
+    .info-item
+      margin-bottom: 20px
+    .text
+      font-weight: 500
+
+  .contact-wrapper
+    .contact-item
+      margin-bottom: 20px
+
+  .info-wrapper, .contact-wrapper
+    .icon
+      width: 25px
+      margin-right: 10px
+      font-size: 24px
+      &.fa-map-location-dot
+        font-size: 19px
+      &.fa-behance
+        font-size: 21px
+    .text-wrapper
+      display: inline-block
+      width: max-content
+      position: relative
+      font-size: 17px
+    .text:hover
+      text-decoration: underline
+    .copy-button
+      position: absolute
+      top: 0
+      right: -30px
+      cursor: pointer
+      opacity: 0
+      visibility: hidden
+      transition: opacity 0.2s ease-in, visibility 0.2s ease-in
+    &:hover
+      .copy-button
+        opacity: 1
+        visibility: visible
+
+  .soft-skills-wrapper
+    .title-wrapper
+      position: relative
+      .icon
+        margin-right: 8px
+        font-size: 24px
+      .caret-icon
+        font-size: 19px
+        position: absolute
+        top: 2px
+        left: -20px
+      .title
+        display: inline-block
+        margin-bottom: 20px
+        font-weight: 500
+        font-size: 20px
+        text-transform: uppercase
+    .list
+      padding-left: 30px
+    .item
+      margin-bottom: 10px
+      color: #434d52
+
+  .qr-wrapper
+    padding: 30px 0
+    .qr-image
+      display: block
+      width: 200px
+      margin: 0 auto 10px
+      transition: filter 1s ease-in
+      &:hover
+        filter: saturate(4) drop-shadow(0 0 5px #aeaeae)
+    .text
+      display: block
+      width: 200px
+      margin: 0 auto
+      color: #555
+      text-align: justify
