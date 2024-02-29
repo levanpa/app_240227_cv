@@ -1,11 +1,26 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 
-// defineProps({
-//   msg: String,
-// })
+function calcExpandableHeight() {
+  const elements = document.querySelectorAll('.expandable')
+  elements.forEach((item) => {
+    item.setAttribute('data-height', `${item.scrollHeight + 30}px`)
+  })
+}
 
-// const count = ref(0)
+function toggleExpandable(event) {
+  let element = event.target.nextElementSibling
+  // check if the element is expanded or collapsed
+  if (element.hasAttribute('style')) {
+    element.removeAttribute('style')
+  } else {
+    element.style.maxHeight = element.getAttribute('data-height')
+  }
+}
+
+onMounted(() => {
+  calcExpandableHeight()
+})
 </script>
 
 <template lang="pug">
@@ -18,42 +33,50 @@ import { ref } from 'vue'
     ul.timeline-list
       li.timeline-item
         span.year 2015
-        p.text Learnt Ecommerce at University of Information Technology (UIT).
+        .text-wrapper
+          p.name Learnt Ecommerce at University of Information Technology (UIT).
       li.timeline-item
         span.year 03/2019
-        p.text
-          span.bold Worked as a Full stack website developer at P.A Viet Nam Company Limited.
-          span.dash
-          span.work Website dev (realty and e-commercial websites).
-            br
-            | - Design website admin page's interface.
-            br
-            | - Design, create website templates.
-          span.approach Approach: HTML, CSS, Jquery, ReactJs, Ajax, PHP, MySQL, Bootstrap, git, svn, responsive, browser compatibility...
+        .text-wrapper
+          p.name.bold.clickable(@click.prevent="toggleExpandable") Worked as a Full stack website developer at P.A Viet Nam Company Limited.
+          .info.expandable
+            span.dash
+            span.work Website dev (realty and e-commercial websites).
+              br
+              | - Design website admin page's interface.
+              br
+              | - Design, create website templates.
+            span.approach Approach: HTML, CSS, Jquery, ReactJs, Ajax, PHP, MySQL, Bootstrap, git, svn, responsive, browser compatibility...
       li.timeline-item
         span.year 07/2020
-        p.text Learnt about Graphic Design and Web Design.
-          span.dash
-          span.approach Approach: Photoshop, Figma, Illustrator, UI/UX, Adobe XD, Lightroom,...
+        .text-wrapper
+          p.name.clickable(@click.prevent="toggleExpandable") Learnt about Graphic Design and Web Design.
+          .info.expandable
+            span.dash
+            span.approach Approach: Photoshop, Figma, Illustrator, UI/UX, Adobe XD, Lightroom,...
       li.timeline-item
         span.year 11/2020
-        p.text
-          span.bold Worked as a Front-end website developer at Fastcoding Viet Nam.
-          span.dash
-          span.work Website dev (landing pages, business websites).
-            br
-            | - Slice html from design and make it functional
-            br
-            | - Maintain and support (client's and company's webs)
-          span.approach Approach: Sass/scss, pug, Vuejs, Wordpress, Japanese web styles,...
+        .text-wrapper
+          p.name.bold.clickable(@click.prevent="toggleExpandable") Worked as a Front-end website developer at Fastcoding Viet Nam.
+          .info.expandable
+            span.dash
+            span.work Website dev (landing pages, business websites).
+              br
+              | - Slice html from design and make it functional
+              br
+              | - Maintain and support (client's and company's webs)
+            span.approach Approach: Sass/scss, pug, Vuejs, Wordpress, Japanese web styles,...
       li.timeline-item
         span.year 12/2021
-        p.text Learnt more about framework.
-          span.dash
-          span.approach Approach: more Vuejs, Nestjs, Vite, Typescript, Axios, Vuex, Pinia,...
+        .text-wrapper
+          p.name.clickable(@click.prevent="toggleExpandable") Learnt more about framework.
+          .info.expandable
+            span.dash
+            span.approach Approach: more Vuejs, Nestjs, Vite, Typescript, Axios, Vuex, Pinia,...
       li.timeline-item
         span.year 02/2022
-        p.text Service for military.
+        .text-wrapper
+          p.name Service for military.
   .skills-wrapper
     h2.title skills
     .skill-chart

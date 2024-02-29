@@ -6,9 +6,20 @@ function copyToClipboard(event) {
     console.log('The browser does not support.')
     return
   }
-  let textElement = event.target.closest('.text-wrapper').querySelector('.text')
-  let value = textElement.textContent
-  navigator.clipboard.writeText(value)
+  // get text value to copy
+  const value = event.target.closest('.text-wrapper').querySelector('.text').textContent
+
+  navigator.clipboard.writeText(value).then(() => {
+    // notify if copy is successful
+    const notifyElement = document.querySelector('.copy-notify')
+    const top = event.target.getBoundingClientRect().top
+    const left = event.target.getBoundingClientRect().left
+    notifyElement.setAttribute('style', `top: ${top - 10}px; left: ${left + 25}px;`)
+    notifyElement.classList.remove('show')
+    setTimeout(() => {
+      notifyElement.classList.add('show')
+    }, 100)
+  })
 }
 </script>
 
@@ -77,11 +88,13 @@ function copyToClipboard(event) {
       li.item Support and share.
   .add-skills-wrapper
     ul.list
-     li.item
+      li.item
   .qr-wrapper
     a.qr-image(href="https://github.com/levanpa/app_240227_cv" target="_blank")
       img(src="../assets/qr_to_github.png")
     span.text Scan (or click) me to go to source code of this project
+  .copy-notify
+    span.text Copied
 </template>
 
 <style lang="sass">

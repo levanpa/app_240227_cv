@@ -94,10 +94,34 @@
       margin: 0 auto 10px
       transition: filter 1s ease-in
       &:hover
-        filter: saturate(4) drop-shadow(0 0 5px #aeaeae)
+        filter: saturate(3) drop-shadow(0 0 5px #aeaeae)
     .text
       display: block
       width: 200px
       margin: 0 auto
       color: #555
       text-align: justify
+
+  .copy-notify
+    padding: 6px 15px
+    border: 1px solid #333
+    border-radius: 8px
+    background-color: #fff
+    opacity: 0
+    position: fixed
+    top: 0
+    left: 0
+    z-index: 10
+    user-select: none
+    &.show
+      animation: showCopyNotify 3s 1 ease-in both
+
+@keyframes showCopyNotify
+  0%
+    opacity: 0
+  10%
+    opacity: 1
+  90%
+    opacity: 1
+  100%
+    opacity: 0

@@ -1,5 +1,5 @@
 .mainpage-wrapper
-  padding: 40px 32px
+  padding: 40px
   .title
     margin-bottom: 30px
     font-size: 24px
@@ -7,7 +7,7 @@
     font-weight: 700
   .top-wrapper
     display: flex
-    margin: 0 30px 40px 30px
+    margin: 0 25px 40px
     padding: 20px 40px
     background-color: #ecf2f4
     box-shadow: 0 2px 4px #7c7c7c
@@ -59,9 +59,14 @@
     .year
       flex: 100px 0 0
       color: #617e8c
-    .text
+    .text-wrapper
       font-size: 18px
       color: #034b68
+    .name.clickable
+      cursor: pointer
+      transition: opacity 0.2s ease-in
+      &:hover
+        opacity: 0.8
     .bold
       font-weight: 600
     .dash
@@ -77,6 +82,10 @@
       display: block
       font-size: 16px
       color: #000
+    .info
+      max-height: 0
+      overflow: hidden
+      transition: max-height 0.3s ease-in
 
   .skills-wrapper
     .skill-chart
