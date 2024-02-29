@@ -2,9 +2,11 @@
 import { ref, onMounted } from 'vue'
 
 function calcExpandableHeight() {
-  const elements = document.querySelectorAll('.expandable')
+  const elements = document.querySelectorAll('.text-wrapper .info')
   elements.forEach((item) => {
-    item.setAttribute('data-height', `${item.scrollHeight + 30}px`)
+    const height = `${item.scrollHeight + 30}px`
+    item.setAttribute('data-height', height)
+    item.style.maxHeight = height
   })
 }
 
@@ -18,8 +20,20 @@ function toggleExpandable(event) {
   }
 }
 
+function hideExpandable(event) {
+  setTimeout(() => {
+    let elements = document.querySelectorAll('.text-wrapper .info')
+    elements.forEach((item) => {
+      if (item.hasAttribute('style')) {
+        item.removeAttribute('style')
+      }
+    })
+  }, 1000);
+}
+
 onMounted(() => {
   calcExpandableHeight()
+  hideExpandable()
 })
 </script>
 
@@ -39,7 +53,7 @@ onMounted(() => {
         span.year 03/2019
         .text-wrapper
           p.name.bold.clickable(@click.prevent="toggleExpandable") Worked as a Full stack website developer at P.A Viet Nam Company Limited.
-          .info.expandable
+          .info
             span.dash
             span.work Website dev (realty and e-commercial websites).
               br
@@ -51,14 +65,14 @@ onMounted(() => {
         span.year 07/2020
         .text-wrapper
           p.name.clickable(@click.prevent="toggleExpandable") Learnt about Graphic Design and Web Design.
-          .info.expandable
+          .info
             span.dash
             span.approach Approach: Photoshop, Figma, Illustrator, UI/UX, Adobe XD, Lightroom,...
       li.timeline-item
         span.year 11/2020
         .text-wrapper
           p.name.bold.clickable(@click.prevent="toggleExpandable") Worked as a Front-end website developer at Fastcoding Viet Nam.
-          .info.expandable
+          .info
             span.dash
             span.work Website dev (landing pages, business websites).
               br
@@ -70,7 +84,7 @@ onMounted(() => {
         span.year 12/2021
         .text-wrapper
           p.name.clickable(@click.prevent="toggleExpandable") Learnt more about framework.
-          .info.expandable
+          .info
             span.dash
             span.approach Approach: more Vuejs, Nestjs, Vite, Typescript, Axios, Vuex, Pinia,...
       li.timeline-item
