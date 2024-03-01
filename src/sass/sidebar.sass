@@ -1,4 +1,5 @@
 .sidebar-wrapper
+  min-width: 300px
   box-shadow: 2px 0 7px #a9a9a9
   .top-wrapper,
   .info-wrapper,
@@ -125,3 +126,64 @@
     opacity: 1
   100%
     opacity: 0
+
++mb
+  .sidebar-wrapper
+    min-width: unset
+    box-shadow: none
+    .top-wrapper,
+    .info-wrapper,
+    .contact-wrapper,
+    .soft-skills-wrapper
+      padding: 20rem 40rem
+
+    .info-wrapper
+      .info-item
+        margin-bottom: 20rem
+
+    .contact-wrapper
+      .contact-item
+        margin-bottom: 20rem
+
+    .info-wrapper, .contact-wrapper
+      .icon
+        width: 25rem
+        margin-right: 10rem
+        font-size: 24rem
+        &.fa-map-location-dot
+          font-size: 19rem
+        &.fa-behance
+          font-size: 21rem
+      .text-wrapper
+        font-size: 17rem
+      .copy-button
+        right: -30rem
+
+    .soft-skills-wrapper
+      .title-wrapper
+        .icon
+          margin-right: 8rem
+          font-size: 24rem
+        .caret-icon
+          font-size: 19rem
+          top: 2rem
+          left: -20rem
+        .title
+          margin-bottom: 20rem
+          font-size: 20rem
+      .list
+        padding-left: 30rem
+      .item
+        margin-bottom: 10rem
+
+    .qr-wrapper
+      padding: 30rem 0
+      .qr-image
+        width: 200rem
+        margin: 0 auto 10rem
+      .text
+        width: 200rem
+
+    .copy-notify
+      padding: 6rem 15rem
+      border-radius: 8rem

@@ -25,9 +25,9 @@ function copyToClipboard(event) {
 
 <template lang="pug">
 .sidebar-wrapper
-  .top-wrapper
+  .top-wrapper.pc
     .avatar
-      img(src="../assets/me.png" alt="Le Van Pa")
+      img(src="../assets/me.png" alt="Le Van Pa" title="I'm older than this image")
     .right
       h1.name LE VAN PA
       span.born Born in 1995

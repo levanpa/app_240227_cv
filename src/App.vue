@@ -16,6 +16,12 @@ onMounted(() => {
 
 <template lang="pug">
 .page-wrapper
+  .top-wrapper.mb
+    .avatar
+      img(src="./assets/me.png" alt="Le Van Pa" title="I'm older than this image")
+    .right
+      h1.name LE VAN PA
+      span.born Born in 1995
   Sidebar
   MainPage
   .openning-gradient
@@ -23,6 +29,7 @@ onMounted(() => {
 
 <style lang="sass">
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap')
+@import url('./sass/normalize.css')
 
 // reset css
 *
@@ -84,4 +91,48 @@ a
   transition: top 1s ease-out
   &.animating
     top: 100%
+
++pc
+  .mb
+    display: none !important
+
++mb
+  html
+    font-size: calc(100vw / 375)
+  body
+    overflow-x: hidden
+    font-size: 16rem
+  .pc
+    display: none !important
+
+  #app
+    max-width: unset
+    font-size: 16rem
+  .page-wrapper
+    flex-direction: column
+    box-shadow: 2rem 0 7rem #a9a9a9
+    .sidebar-wrapper
+      display: none
+    .mainpage-wrapper
+      flex: 100% 1 1
+
+    > .top-wrapper
+        display: flex
+        align-items: center
+        gap: 10rem
+        padding: 20rem 40rem
+        background-color: #ecf2f4
+        border-bottom: 1rem solid #bbb
+        .avatar
+          flex-basis: 100rem
+          height: 100rem
+          border-radius: 50%
+          background-color: #fff
+        .name
+          font-weight: 600
+          font-size: 20rem
+        .born
+          color: #888
+          font-size: 14rem
+
 </style>

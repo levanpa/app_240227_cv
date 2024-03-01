@@ -123,7 +123,9 @@ onMounted(() => {
           li.item
             span.hidden hidden text
             span.value(style="width: 50%;")
-        span.note * Reading and Listening: TOEIC 755
+        span.note * Reading and Listening: &nbsp;
+          br.mb
+          | TOEIC 755
 </template>
 
 <style lang="sass">
