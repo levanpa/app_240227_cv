@@ -1,6 +1,8 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 
+let isExpandAll = false
+
 function calcExpandableHeight() {
   const elements = document.querySelectorAll('.text-wrapper .info')
   elements.forEach((item) => {
@@ -20,7 +22,7 @@ function toggleExpandable(event) {
   }
 }
 
-function hideExpandable(event) {
+function hideExpandable() {
   setTimeout(() => {
     let elements = document.querySelectorAll('.text-wrapper .info')
     elements.forEach((item) => {
@@ -29,6 +31,20 @@ function hideExpandable(event) {
       }
     })
   }, 1000);
+}
+
+function expandAll() {
+  let elements = document.querySelectorAll('.experience-wrapper .text-wrapper .info')
+  if (isExpandAll) {
+    elements.forEach((item) => {
+      item.removeAttribute('style')
+    })
+  } else {
+    elements.forEach((item) => {
+      item.style.maxHeight = item.getAttribute('data-height')
+    })
+  }
+  isExpandAll = !isExpandAll
 }
 
 onMounted(() => {
@@ -43,7 +59,10 @@ onMounted(() => {
     i.icon.fa-solid.fa-circle-exclamation
     p.text I've studied E-Commerce major at  University of Information Technology (UIT). I wish to be a Front-end developer working in commercial.
   .experience-wrapper
-    h2.title experience
+    .title-wrapper
+      h2.title experience
+      button.expand-button(@click.prevent="expandAll")
+        i.fa-solid.fa-up-down
     ul.timeline-list
       li.timeline-item
         span.year 2015

@@ -1,7 +1,6 @@
 .mainpage-wrapper
   padding: 40px
   .title
-    margin-bottom: 30px
     font-size: 24px
     text-transform: uppercase
     font-weight: 700
@@ -26,6 +25,24 @@
     margin-bottom: 30px
     padding-bottom: 20px
     border-bottom: 1px solid #ccc
+    &:hover
+      .expand-button
+        display: inline-flex
+    .title-wrapper
+      display: flex
+      gap: 20px
+      margin-bottom: 30px
+    .expand-button
+      display: none
+      align-items: center
+      justify-content: center
+      width: 28px
+      aspect-ratio: 1
+      border-radius: 50%
+      color: #3f94ff
+      cursor: pointer
+      &:hover
+        background-color: #daecf7
     .timeline-list
       padding-left: 30px
       font-style: italic
@@ -88,6 +105,8 @@
       transition: max-height 0.3s ease-in
 
   .skills-wrapper
+    .title
+      margin-bottom: 30px
     .skill-chart
       display: flex
       gap: 30px
@@ -123,7 +142,6 @@
   .mainpage-wrapper
     padding: 24rem
     .title
-      margin-bottom: 30rem
       font-size: 24rem
     .top-wrapper
       margin: 0 auto 30rem
@@ -138,6 +156,15 @@
     .experience-wrapper
       margin-bottom: 30rem
       padding-bottom: 20rem
+      .title-wrapper
+        gap: 20rem
+        margin-bottom: 30rem
+      .expand-button
+        display: inline-flex
+        width: 30rem
+        color: #3f94ff
+        cursor: pointer
+        background-color: #daecf7
       .timeline-list
         padding-left: 20rem
         &:after
@@ -167,6 +194,8 @@
         font-size: 16rem
 
     .skills-wrapper
+      .title
+        margin-bottom: 30rem
       .skill-chart
         gap: 30rem
       .left
