@@ -91,7 +91,7 @@ function copyToClipboard(event) {
       li.item
   .qr-wrapper
     a.qr-image(href="https://github.com/levanpa/app_240227_cv/tree/build" target="_blank")
-      img(src="../assets/qr_to_github.png")
+      img(src="../assets/qr_to_github.png" alt="levanpa cv github")
     span.text Scan (or click) me to go to source code of this project
   .copy-notify
     span.text Copied
