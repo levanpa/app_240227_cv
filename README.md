@@ -8,4 +8,9 @@ npm install
 npm run dev
 ```
 
-3. Done.
+3. Recommend extensions for VS Code:
+
+- volar
+- vite
+- pug
+- sass
