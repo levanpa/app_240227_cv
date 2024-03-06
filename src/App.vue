@@ -5,6 +5,10 @@ import MainPage from './components/MainPage.vue'
 
 let topPosition = 0
 
+function openingAnimation() {
+  document.querySelector('.openning-gradient').classList.add('animating')
+}
+
 function handleCompactHeader() {
   // execute event when scoll 100px from top
   document.addEventListener('scroll', (event) => {
@@ -40,6 +44,7 @@ function loadNonImportantCss() {
 }
 
 onMounted(() => {
+  openingAnimation()
   loadNonImportantCss()
   handleCompactHeader()
 })

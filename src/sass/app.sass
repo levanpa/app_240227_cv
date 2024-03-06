@@ -54,16 +54,12 @@ a
   height: 150%
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 1) 100%)
   position: absolute
-  transform: translateY(0)
   top: -50%
   left: 0
   z-index: 100
-  animation: openning 1s 1 ease-in both
-
-@keyframes openning
-  0%
-    transform: translateY(0%)
-  100%
+  transform: translateY(0)
+  transition: transform 1s ease-in
+  &.animating
     transform: translateY(100%)
 
 +pc
@@ -151,5 +147,3 @@ a
         color: #fff
         background-color: #417aff
         border-radius: 50%
-    .openning-gradient
-      display: none
