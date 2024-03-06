@@ -50,17 +50,21 @@ a
     flex: 65% 1 1
 
 .openning-gradient
-  display: none
   width: 100%
   height: 150%
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 1) 100%)
   position: absolute
+  transform: translateY(0)
   top: -50%
   left: 0
   z-index: 100
-  transition: top 1s ease-out
-  &.animating
-    top: 100%
+  animation: openning 1s 1 ease-in both
+
+@keyframes openning
+  0%
+    transform: translateY(0%)
+  100%
+    transform: translateY(100%)
 
 +pc
   .mb
@@ -135,7 +139,7 @@ a
         font-weight: 600
         font-size: 20rem
       .born
-        color: #888
+        color: #555
         font-size: 14rem
       .contact-button
         display: inline-flex
@@ -147,3 +151,5 @@ a
         color: #fff
         background-color: #417aff
         border-radius: 50%
+    .openning-gradient
+      display: none

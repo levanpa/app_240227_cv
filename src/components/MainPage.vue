@@ -30,7 +30,7 @@ function hideExpandable() {
         item.removeAttribute('style')
       }
     })
-  }, 1000);
+  }, 1500);
 }
 
 function expandAll() {
@@ -61,7 +61,7 @@ onMounted(() => {
   .experience-wrapper
     .title-wrapper
       h2.title experience
-      button.expand-button(@click.prevent="expandAll")
+      button.expand-button(aria-label="expand experience button" @click.prevent="expandAll")
         i.fa-solid.fa-up-down
     ul.timeline-list
       li.timeline-item
@@ -150,4 +150,3 @@ onMounted(() => {
 <style lang="sass">
 @import '../sass/mainpage.sass'
 </style>
-

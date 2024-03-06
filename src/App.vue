@@ -5,12 +5,6 @@ import MainPage from './components/MainPage.vue'
 
 let topPosition = 0
 
-function loaded() {
-  setTimeout(() => {
-    document.querySelector('.openning-gradient').classList.add('animating')
-  }, 100);
-}
-
 function handleCompactHeader() {
   // execute event when scoll 100px from top
   document.addEventListener('scroll', (event) => {
@@ -37,8 +31,16 @@ function toggleSidebar() {
   }
 }
 
+function loadNonImportantCss() {
+  const link = document.createElement('link')
+  link.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css'
+  link.rel = 'stylesheet'
+  link.media = 'all'
+  document.head.appendChild(link)
+}
+
 onMounted(() => {
-  loaded()
+  loadNonImportantCss()
   handleCompactHeader()
 })
 </script>

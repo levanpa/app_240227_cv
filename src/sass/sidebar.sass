@@ -20,18 +20,17 @@
       font-weight: 600
       font-size: 20px
     .born
-      color: #888
+      color: #555
       font-size: 14px
 
   .info-wrapper
-    .info-item
-      margin-bottom: 20px
     .text
       font-weight: 500
 
-  .contact-wrapper
-    .contact-item
-      margin-bottom: 20px
+  .info-item, .contact-item
+    margin-bottom: 20px
+    padding-left: 35px
+    position: relative
 
   .info-wrapper, .contact-wrapper
     &:hover
@@ -39,9 +38,10 @@
         opacity: 1
         visibility: visible
     .icon
-      width: 25px
-      margin-right: 10px
       font-size: 24px
+      position: absolute
+      left: 0
+      top: -1px
       &.fa-map-location-dot
         font-size: 19px
       &.fa-behance
@@ -66,10 +66,13 @@
 
   .soft-skills-wrapper
     .title-wrapper
+      padding-left: 32px
       position: relative
       .icon
-        margin-right: 8px
         font-size: 24px
+        position: absolute
+        top: 0
+        left: 0
       .caret-icon
         font-size: 19px
         position: absolute
@@ -137,18 +140,12 @@
     .soft-skills-wrapper
       padding: 20rem 40rem
 
-    .info-wrapper
-      .info-item
-        margin-bottom: 20rem
-
-    .contact-wrapper
-      .contact-item
-        margin-bottom: 20rem
+    .info-item, .contact-item
+      margin-bottom: 20rem
+      padding-left: 35rem
 
     .info-wrapper, .contact-wrapper
       .icon
-        width: 25rem
-        margin-right: 10rem
         font-size: 24rem
         &.fa-map-location-dot
           font-size: 19rem
