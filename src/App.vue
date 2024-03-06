@@ -6,7 +6,9 @@ import MainPage from './components/MainPage.vue'
 let topPosition = 0
 
 function openingAnimation() {
-  document.querySelector('.openning-gradient').classList.add('animating')
+  setTimeout(() => {
+    document.querySelector('.openning-gradient').classList.add('animating')
+  }, 50)
 }
 
 function handleCompactHeader() {

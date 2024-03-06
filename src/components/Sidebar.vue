@@ -11,15 +11,23 @@ function copyToClipboard(event) {
 
   navigator.clipboard.writeText(value).then(() => {
     // notify if copy is successful
-    const notifyElement = document.querySelector('.copy-notify')
-    const top = event.target.getBoundingClientRect().top
-    const left = event.target.getBoundingClientRect().left
-    notifyElement.setAttribute('style', `top: ${top - 10}px; left: ${left + 25}px;`)
-    notifyElement.classList.remove('show')
-    setTimeout(() => {
-      notifyElement.classList.add('show')
-    }, 100)
+    showNotification('.copy-notify', event.target)
   })
+}
+
+function showNotification(selector, relativeElement) {
+  const notifyElement = document.querySelector(selector)
+  const top = relativeElement.getBoundingClientRect().top
+  const left = relativeElement.getBoundingClientRect().left
+  notifyElement.setAttribute('style', `top: ${top - 10}px; left: ${left + 25}px;`)
+  notifyElement.classList.remove('show')
+  setTimeout(() => {
+    notifyElement.classList.add('show')
+  }, 100)
+}
+
+function bait(event) {
+  showNotification('.baited-notity', event.target)
 }
 </script>
 
@@ -77,7 +85,7 @@ function copyToClipboard(event) {
           i.fa-regular.fa-copy
   .soft-skills-wrapper
     .title-wrapper
-      i.caret-icon.fa-solid.fa-caret-down
+      i.caret-icon.fa-solid.fa-caret-down(@click.prevent="bait")
       i.icon.fa-solid.fa-universal-access
       h2.title soft skills
     ul.list
@@ -92,9 +100,14 @@ function copyToClipboard(event) {
   .qr-wrapper
     a.qr-image(href="https://github.com/levanpa/app_240227_cv/tree/build" target="_blank")
       img(src="../assets/qr_to_github.png" alt="levanpa cv github")
-    span.text Scan (or click) me to go to source code of this project
+    .qr-text
+      span Scan (or click)&nbsp;
+      a.tiktok-link(href="https://www.tiktok.com/@dongkelailai" target="_blank" title="Bấm vào đây để được heal mỗi ngày") me
+      span &nbsp;to go to source code of this project
   .copy-notify
     span.text Copied
+  .baited-notity
+    span.text You've got click baited!
 </template>
 
 <style lang="sass">

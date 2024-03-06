@@ -99,14 +99,15 @@
       transition: filter 1s ease-in
       &:hover
         filter: saturate(3) drop-shadow(0 0 5px #aeaeae)
-    .text
-      display: block
+    .qr-text
       width: 200px
       margin: 0 auto
       color: #555
       text-align: justify
+    .tiktok-link
+      text-decoration: underline
 
-  .copy-notify
+  .copy-notify, .baited-notity
     padding: 6px 15px
     border: 1px solid #333
     border-radius: 8px
@@ -118,7 +119,7 @@
     z-index: 10
     user-select: none
     &.show
-      animation: showCopyNotify 3s 1 ease-in both
+      animation: showCopyNotify 2s 1 ease-in both
 
 @keyframes showCopyNotify
   0%
