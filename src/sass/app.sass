@@ -29,6 +29,8 @@ a
   text-decoration: none
 
 // general styles
+body.is-modal-open
+  overflow: hidden
 #app
   width: 100%
   max-width: 1024px
@@ -61,6 +63,19 @@ a
   transition: transform 1s ease-in
   &.animating
     transform: translateY(100%)
+
+.common-button
+  display: inline-flex
+  align-items: center
+  justify-content: center
+  width: 28px
+  aspect-ratio: 1
+  margin-left: 20px
+  border-radius: 50%
+  color: #3f94ff
+  cursor: pointer
+  &:hover
+    background-color: #daecf7
 
 +pc
   .mb
@@ -147,3 +162,10 @@ a
         color: #fff
         background-color: #417aff
         border-radius: 50%
+
+  .common-button
+    display: inline-flex
+    width: 30rem
+    color: #3f94ff
+    cursor: pointer
+    background-color: #daecf7
