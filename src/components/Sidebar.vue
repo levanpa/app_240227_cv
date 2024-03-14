@@ -130,7 +130,7 @@ onMounted(() => {
       h2.title soft skills
       button.common-button(aria-label="expand soft skills button" @click.prevent="expandSoftSkills")
         i.fa-solid.fa-maximize
-    .list
+    ul.list
       li.item Experience in teamwork.
       li.item Research, learn new things.
       li.item Have responsibility for work.
