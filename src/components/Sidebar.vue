@@ -129,9 +129,9 @@ onMounted(() => {
       i.icon.fa-solid.fa-universal-access
       h2.title soft skills
       button.common-button(aria-label="expand soft skills button" @click.prevent="expandSoftSkills")
-        i.fa-solid.fa-up-down
+        i.fa-solid.fa-maximize
     .list
-      li.item Experience in team working.
+      li.item Experience in teamwork.
       li.item Research, learn new things.
       li.item Have responsibility for work.
       li.item Self-management.
@@ -142,19 +142,24 @@ onMounted(() => {
       ul.modal-list
         li.modal-item
           p.title Experience in team working.
-          p.description làm việc theo nhóm là kỹ năng quan trọng để có thể kết hợp từng người lại để hoàn thành được dự án một cách có hiệu quả nhất. Tôi đã rèn luyện kỹ năng này trong suốt quá trình làm việc của mình.
+          p.description Working in teams has taught me the value of open communication, adapt to diverse personalities, clear role definition, and support colleagues, all of which are crucial elements in accomplishing shared objectives.
+          //- Qua quá trình làm việc nhóm nhiều năm, tôi có khả năng chia sẻ ý tưởng với người khác, hoà nhập với đa dạng tính cách, phân định rạch ròi vai trò trách nhiệm từng người nhưng không thể thiếu việc hỗ trợ đồng nghiệp để hoàn thành nhiệm vụ chung.
         li.modal-item
           p.title Research, learn new things.
-          p.description luôn luôn cập nhật công nghệ mới để nâng cao hiệu suất cho dự án của mìnhm kỹ năng sống còn của lập trình viên
+          p.description New technologies are developed to either resolve limitations of existing technologies or improve their efficiency. Therefore, I continuously learn and embrace new technologies to enhance my skills.
+          //- Công nghệ mới ra đời nhằm mục đích giải quyết vấn đề trong quá khứ hoặc nâng cao hiệu suất của công nghệ cũ. Vì vậy tôi luôn luôn học hỏi và tiếp thu công nghệ mới để nâng cao hiệu suất tay nghề của mình.
         li.modal-item
           p.title Have responsibility for work.
-          p.description luôn luôn cập nhật công nghệ mới để nâng cao hiệu suất cho dự án của mìnhm kỹ năng sống còn của lập trình viên
+          p.description Earning the trust and respect of colleagues, superiors, and clients is very important, and this can only be achieved through a strong sense of responsibility in my work.
+          //- Sự tin tưởng và tôn trọng từ đồng nghiệp, cấp trên và khách hàng là điều vô cùng quan trọng, mà chỉ có thể đạt được thông qua sự trách nhiệm trong công việc.
         li.modal-item
           p.title Self-management.
-          p.description kỹ năng làm việc độc lập, tự quản lý công việc của mình qua Trello, Google Sheet
+          p.description Skills to work independently, self-manage your work via Trello, Google Sheet.
+          //- Kỹ năng làm việc độc lập, tự quản lý công việc của mình qua Trello, Google Sheet
         li.modal-item
           p.title Support and share.
-          p.description Luôn sẵn sàng chia sẻ kiến thức mới lạ lên knowledge book của công ty, cũng như chia sẻ, hướng dẫn trực tiếp cho nhân viên mới
+          p.description I am always ready to share new knowledge in the company's knowledge book, as well as share and provide direct and dedicated guidance to new employees. That helps increase the capacity of the whole team.
+          //- Tôi luôn sẵn sàng chia sẻ kiến thức mới lạ lên knowledge book của công ty, cũng như chia sẻ, hướng dẫn trực tiếp, tận tình cho nhân viên mới. Điều đó giúp tăng năng lực của cả team.
 
   .qr-wrapper
     a.qr-image(href="https://github.com/levanpa/app_240227_cv/tree/build" target="_blank")

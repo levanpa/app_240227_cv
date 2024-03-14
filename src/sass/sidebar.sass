@@ -7,6 +7,9 @@
   .soft-skills-wrapper
     padding: 20px 40px
     border-bottom: 1px solid #bbb
+    &:hover
+      .common-button
+        display: inline-flex
   .top-wrapper
     display: flex
     align-items: center
@@ -92,10 +95,13 @@
   .soft-skills-modal
     width: 800px
     padding: 0 40px 20px
+    box-shadow: 0 2px 7px #7c7c7c
+    border: none
+    border-radius: 6px
     z-index: 100
     top: 50%
     left: 50%
-    translate: -50% -50%
+    transform: translate(-50%, -50%)
     position: relative
     &[open]
       display: flex
@@ -214,6 +220,20 @@
         padding-left: 30rem
       .item
         margin-bottom: 10rem
+      .soft-skills-modal
+        width: 90%
+        padding: 0 40rem 20rem
+        box-shadow: 0 2rem 7rem #7c7c7c
+        border-radius: 6rem
+        .close-button
+          font-size: 26rem
+          transform: translate(33rem, 5rem)
+        .modal-item:not(:last-child)
+          margin-bottom: 10rem
+          padding-bottom: 10rem
+          text-align: justify
+        .title
+          margin-bottom: 5rem
 
     .qr-wrapper
       padding: 30rem 0

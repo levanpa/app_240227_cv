@@ -47,6 +47,38 @@ function expandAll() {
   isExpandAll = !isExpandAll
 }
 
+function fullscreenModal() {
+  let mainpageElement = document.querySelector('.mainpage-wrapper')
+  if (mainpageElement.classList.contains('is-full')) {
+    mainpageElement.classList.remove('is-full')
+  } else {
+    mainpageElement.classList.add('is-full')
+    handleModal()
+  }
+}
+
+function handleModal() {
+  let modal = document.querySelector('.mainpage-wrapper.is-full .experience-wrapper')
+  modal.addEventListener('click', event => {
+    const bounding = modal.getBoundingClientRect()
+    if (
+      event.clientX < bounding.left ||
+      event.clientX > bounding.right ||
+      event.clientY < bounding.top ||
+      event.clientY > bounding.bottom
+    ) {
+      closeModal()
+    }
+  })
+}
+
+function closeModal() {
+  let mainpageElement = document.querySelector('.mainpage-wrapper')
+  if (mainpageElement.classList.contains('is-full')) {
+    mainpageElement.classList.remove('is-full')
+  }
+}
+
 onMounted(() => {
   calcExpandableHeight()
   hideExpandable()
@@ -61,8 +93,10 @@ onMounted(() => {
   .experience-wrapper
     .title-wrapper
       h2.title experience
-      button.expand-button(aria-label="expand experience button" @click.prevent="expandAll")
+      button.common-button(aria-label="expand experience button" title="Click to expand all fields" @click.prevent="expandAll")
         i.fa-solid.fa-up-down
+      button.fullscreen-button.common-button(aria-label="fullscreenModal experience button" title="Click to widen experience session" @click.prevent="fullscreenModal")
+        i.fa-solid.fa-maximize
     ul.timeline-list
       li.timeline-item
         span.year 2015
@@ -74,12 +108,13 @@ onMounted(() => {
           p.name.bold.clickable(@click.prevent="toggleExpandable") Worked as a Full stack website developer at P.A Viet Nam Company Limited.
           .info
             span.dash
-            span.work Website dev (realty and e-commercial websites).
-              br
-              | - Design website admin page's interface.
-              br
-              | - Design, create website templates.
-            span.approach Approach: HTML, CSS, Jquery, ReactJs, Ajax, PHP, MySQL, Bootstrap, git, svn, responsive, browser compatibility...
+            ul.work
+              li - Work with the Customer Service team to fix bugs and update the website based on customer feedback.
+              li - Participate in the development of the website builder tool (similar to Wix.com).
+              li - Code modules follow source code structure.
+              li - Test the tool and provide feedback.
+              li - Create new websites/templates using the company website builder tool.
+            span.approach Approach: HTML, CSS, JS, Jquery, ReactJs, Ajax, PHP, MySQL, Bootstrap, git,...
       li.timeline-item
         span.year 07/2020
         .text-wrapper
@@ -93,12 +128,11 @@ onMounted(() => {
           p.name.bold.clickable(@click.prevent="toggleExpandable") Worked as a Front-end website developer at Fastcoding Viet Nam.
           .info
             span.dash
-            span.work Website dev (landing pages, business websites).
-              br
-              | - Slice html from design and make it functional
-              br
-              | - Maintain and support (client's and company's webs)
-            span.approach Approach: Sass/scss, pug, Vuejs, Wordpress, Japanese web styles,...
+            ul.work
+              li - Slice HTML from design and make it functional.
+              li - Implement animations, responsiveness, browser compatibility, clean code, pixel perfection, WebP images, code validation, and optimize for PageSpeed Insights (PSI).
+              li - Test the website against the company's standards before submitting it to the leader.
+            span.approach Approach: sass/scss, pug, Wordpress, VueJS, Japanese web styles,...
       li.timeline-item
         span.year 12/2021
         .text-wrapper
@@ -107,9 +141,9 @@ onMounted(() => {
             span.dash
             span.approach Approach: more Vuejs, Nestjs, Vite, Typescript, Axios, Vuex, Pinia,...
       li.timeline-item
-        span.year 02/2022
+        span.year 02/2022 - 02/2024
         .text-wrapper
-          p.name Service for military.
+          p.name Served in the military.
   .skills-wrapper
     h2.title skills
     .skill-chart
