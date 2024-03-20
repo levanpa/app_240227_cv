@@ -56,10 +56,10 @@ onMounted(() => {
 .page-wrapper
   .top-wrapper.mb(@click.prevent="toggleSidebar")
     .avatar
-      img(src="./assets/me.png" alt="Le Van Pa" title="I'm older than this image")
+      img(src="./assets/me.png" :alt="$t('name')" :title="$t('old')")
     .right
-      h1.name LE VAN PA
-      span.born Born in 1995
+      h1.name {{ $t('name') }}
+      span.born {{ $t('born') }}
     .contact-button
       i.fa-regular.fa-address-card
   Sidebar

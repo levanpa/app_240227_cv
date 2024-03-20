@@ -5,7 +5,7 @@ my cv as a website
 --- steps
 - init project
 - install pug
-npm install -D pug pug-plain-loader --save-dev
+npm i -D pug pug-plain-loader --save-dev
 - install sass
 npm i sass --save-dev
 npm i sass-loader@10 --save-dev
@@ -15,3 +15,5 @@ npm install pinia
 npm i pinia-plugin-persistedstate
 - fix vite does not hot reload
 - setup file structure
+- setup multilang
+npm install vue-i18n@9 @intlify/unplugin-vue-i18n

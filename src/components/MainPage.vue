@@ -1,12 +1,14 @@
 <script setup>
 import { ref, onMounted } from 'vue'
+import { useI18n } from 'vue-i18n'
 
+const { locale } = useI18n()
 let isExpandAll = false
 
 function calcExpandableHeight() {
   const elements = document.querySelectorAll('.text-wrapper .info')
   elements.forEach((item) => {
-    const height = `${item.scrollHeight + 30}px`
+    const height = `${item.scrollHeight + 60}px`
     item.setAttribute('data-height', height)
     item.style.maxHeight = height
   })
@@ -79,6 +81,13 @@ function closeModal() {
   }
 }
 
+// language list: en, vi
+function changeLanguage(lang) {
+  locale.value = lang || 'en'
+  // calcExpandableHeight()
+  // hideExpandable()
+}
+
 onMounted(() => {
   calcExpandableHeight()
   hideExpandable()
@@ -87,69 +96,75 @@ onMounted(() => {
 
 <template lang="pug">
 .mainpage-wrapper
+  .language-wrapper
+    ul.list
+      li.item
+        button.link(@click="changeLanguage('en')") English
+      li.item
+        button.link(@click="changeLanguage('vi')") Tiếng Việt
   .top-wrapper
     i.icon.fa-solid.fa-circle-exclamation
-    p.text I've studied E-Commerce major at  University of Information Technology (UIT). I wish to be a Front-end developer working in commercial.
+    p.text {{ $t('objective') }}
   .experience-wrapper
     .title-wrapper
-      h2.title experience
-      button.common-button(aria-label="expand experience button" title="Click to expand all fields" @click.prevent="expandAll")
+      h2.title {{ $t('exp.title') }}
+      button.common-button(aria-label="expand experience button" :title="$t('exp.expand_button')" @click.prevent="expandAll")
         i.fa-solid.fa-up-down
-      button.fullscreen-button.common-button(aria-label="fullscreenModal experience button" title="Click to widen experience session" @click.prevent="fullscreenModal")
+      button.fullscreen-button.common-button(aria-label="fullscreenModal experience button" :title="$t('exp.widen_button')" @click.prevent="fullscreenModal")
         i.fa-solid.fa-maximize
     ul.timeline-list
       li.timeline-item
         span.year 2015
         .text-wrapper
-          p.name Learnt Ecommerce at University of Information Technology (UIT).
+          p.name {{ $t('exp.title1') }}
       li.timeline-item
         span.year 03/2019
         .text-wrapper
-          p.name.bold.clickable(@click.prevent="toggleExpandable") Worked as a Full stack website developer at P.A Viet Nam Company Limited.
+          p.name.bold.clickable(@click.prevent="toggleExpandable") {{ $t('exp.title2') }}
           .info
             span.dash
             ul.work
-              li - Work with the Customer Service team to fix bugs and update the website based on customer feedback.
-              li - Participate in the development of the website builder tool (similar to Wix.com).
-              li - Code modules follow source code structure.
-              li - Test the tool and provide feedback.
-              li - Create new websites/templates using the company website builder tool.
-            span.approach Approach: HTML, CSS, JS, Jquery, ReactJs, Ajax, PHP, MySQL, Bootstrap, git,...
+              li {{ $t('exp.pa1') }}
+              li {{ $t('exp.pa2') }}
+              li {{ $t('exp.pa3') }}
+              li {{ $t('exp.pa4') }}
+              li {{ $t('exp.pa5') }}
+            span.approach {{ $t('exp.approach') }} {{ $t('exp.pa_approach') }}
       li.timeline-item
         span.year 07/2020
         .text-wrapper
-          p.name.clickable(@click.prevent="toggleExpandable") Learnt about Graphic Design and Web Design.
+          p.name.clickable(@click.prevent="toggleExpandable") {{ $t('exp.title3') }}
           .info
             span.dash
-            span.approach Approach: Photoshop, Figma, Illustrator, UI/UX, Adobe XD, Lightroom,...
+            span.approach {{ $t('exp.approach') }} {{ $t('exp.graphic_approach') }}
       li.timeline-item
         span.year 11/2020
         .text-wrapper
-          p.name.bold.clickable(@click.prevent="toggleExpandable") Worked as a Front-end website developer at Fastcoding Viet Nam.
+          p.name.bold.clickable(@click.prevent="toggleExpandable") {{ $t('exp.title4') }}
           .info
             span.dash
             ul.work
-              li - Slice HTML from design and make it functional.
-              li - Implement animations, responsiveness, browser compatibility, clean code, pixel perfection, WebP images, code validation, and optimize for PageSpeed Insights (PSI).
-              li - Test the website against the company's standards before submitting it to the leader.
-            span.approach Approach: sass/scss, pug, Wordpress, VueJS, Japanese web styles,...
+              li {{ $t('exp.fc1') }}
+              li {{ $t('exp.fc2') }}
+              li {{ $t('exp.fc3') }}
+            span.approach {{ $t('exp.approach') }} {{ $t('exp.fc_approach') }}
       li.timeline-item
         span.year 12/2021
         .text-wrapper
-          p.name.clickable(@click.prevent="toggleExpandable") Learnt more about framework.
+          p.name.clickable(@click.prevent="toggleExpandable") {{ $t('exp.title5') }}
           .info
             span.dash
-            span.approach Approach: more Vuejs, Nestjs, Vite, Typescript, Axios, Vuex, Pinia,...
+            span.approach {{ $t('exp.approach') }} {{ $t('exp.framework_approach') }}
       li.timeline-item
         span.year 02/2022 - 02/2024
         .text-wrapper
-          p.name Served in the military.
+          p.name {{ $t('exp.title6') }}
   .skills-wrapper
-    h2.title skills
+    h2.title {{ $t('skills.title') }}
     .skill-chart
       .left
         .header
-          span Skills
+          span {{ $t('skills.title') }}
         ul.list
           li.item HTML, CSS
           li.item Vuejs
@@ -158,8 +173,8 @@ onMounted(() => {
           li.item English (*)
       .right
         .header
-          span.header-left beginner
-          span.header-right master
+          span.header-left {{ $t('skills.beginner') }}
+          span.header-right {{ $t('skills.master') }}
         ul.list
           li.item
             span.hidden hidden text
@@ -175,8 +190,8 @@ onMounted(() => {
             span.value(style="width: 65%;")
           li.item
             span.hidden hidden text
-            span.value(style="width: 50%;")
-        span.note * Reading and Listening: &nbsp;
+            span.value(style="width: 45%;")
+        span.note {{ $t('skills.note') }}
           br.mb
           | TOEIC 755
 </template>
