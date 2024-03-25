@@ -3,7 +3,7 @@ import { ref, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 const { locale } = useI18n()
-let isExpandAll = false
+let isExpandAll = true
 
 function calcExpandableHeight() {
   const elements = document.querySelectorAll('.text-wrapper .info')
@@ -91,6 +91,9 @@ function changeLanguage(lang) {
 onMounted(() => {
   calcExpandableHeight()
   // hideExpandable()
+  window.addEventListener('resize', function () {
+    calcExpandableHeight()
+  })
 })
 </script>
 

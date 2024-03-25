@@ -106,7 +106,7 @@ onMounted(() => {
           |m.me/kaipawoo
         button.copy-button(@click.prevent="copyToClipboard" :title="$t('copy_title')")
           i.fa-regular.fa-copy
-    li.contact-item
+    li.contact-item.is-attractive
       i.icon.fa-brands.fa-behance
       .text-wrapper
         a.text(target="_blank" href="https://be.net/levanpa")
@@ -122,10 +122,16 @@ onMounted(() => {
           |t.me/levanpa00
         button.copy-button(@click.prevent="copyToClipboard" :title="$t('copy_title')")
           i.fa-regular.fa-copy
+    li.contact-item
+      i.icon.fa-brands.fa-skype
+      .text-wrapper
+        a.text(target="_blank" href="https://join.skype.com/invite/wDLOpG7WEd7j") live:lezinkmgt
+        button.copy-button(@click.prevent="copyToClipboard" :title="$t('copy_title')")
+          i.fa-regular.fa-copy
 
   .soft-skills-wrapper
     .title-wrapper
-      i.caret-icon.fa-solid.fa-caret-down(@click.prevent="bait")
+      i.caret-icon.fa-solid.fa-caret-down
       i.icon.fa-solid.fa-universal-access
       h2.title {{ $t('soft_skills.title') }}
       button.common-button(aria-label="expand soft skills button" @click.prevent="expandSoftSkills")
@@ -161,7 +167,7 @@ onMounted(() => {
       img(src="../assets/qr_to_github.png" alt="levanpa cv github")
     .qr-text
       span {{ $t('qr.desc1') }}&nbsp;
-      a.tiktok-link(href="https://www.tiktok.com/@dongkelailai" target="_blank" :title="$t('qr.qr_title')") {{ $t('qr.me') }}
+      a.tiktok-link(href="https://github.com/levanpa/app_240227_cv/tree/build" target="_blank") {{ $t('qr.me') }}
       span &nbsp;{{ $t('qr.desc2') }}
   .copy-notify
     span.text {{ $t('copied') }}
