@@ -90,7 +90,7 @@ function changeLanguage(lang) {
 
 onMounted(() => {
   calcExpandableHeight()
-  hideExpandable()
+  // hideExpandable()
 })
 </script>
 
